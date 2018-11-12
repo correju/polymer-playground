@@ -1,0 +1,23 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins/gradients.scss";
+@import "../../styles/mixins/box_show.scss";
+@import "../../styles/mixins/hover.scss";
+@import "../../styles/mixins/buttons.scss";
+@import "../../styles/mixins/transitions.scss";
+@import "../../styles/buttons.scss";
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+  (
+    "primary":    $primary
+  ),
+  $theme-colors
+);
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
