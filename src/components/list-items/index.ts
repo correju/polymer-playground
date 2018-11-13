@@ -5,11 +5,6 @@ const css = require('./index.scss') as string;
 class ListItems extends LitElement {
     @property({type: Array})
     private todoList = [];
-
-    // public connectedCallback() {
-
-    // }
-
     public render() {
       return html`
         <style>${css}</style>
