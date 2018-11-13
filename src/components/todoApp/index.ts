@@ -9,7 +9,7 @@ class TodoApp extends LitElement {
         const todoList = localStorage.getItem('todoList');
         this.todoList = todoList ? JSON.parse(todoList) : [];
     }
-    public connectedCallback() {
+    public firstUpdated() {
         this.updateTodoList();
     }
     public render() {
