@@ -1,2 +1,2 @@
 import '@webcomponents/webcomponentsjs';
-import './components/myComponent';
+import './components/todoApp';

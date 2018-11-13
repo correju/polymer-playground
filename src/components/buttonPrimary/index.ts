@@ -1,11 +1,11 @@
-import { LitElement, html } from '@polymer/lit-element'
+import { html, LitElement } from '@polymer/lit-element';
 
-const css = <string>require('./index.scss');
+const css = require('./index.scss') as string;
 
 class BtnPrimary extends LitElement {
-  
+
   // Render method should return a `TemplateResult` using the provided lit-html `html` tag function
-  render() {
+  public render() {
     return html`
       <style>${css}</style>
       <button class="btn btn-primary"><slot></slot></button>
@@ -13,4 +13,4 @@ class BtnPrimary extends LitElement {
   }
 }
 
-window.customElements.define('btn-primary', BtnPrimary)
+window.customElements.define('btn-primary', BtnPrimary);
