@@ -17,7 +17,7 @@ class ListItem extends LitElement {
       composed: true,
       detail: {
         id: this.todoItem.id,
-      }
+      },
     }));
   }
   private deleteItem() {
@@ -34,9 +34,17 @@ class ListItem extends LitElement {
       return html`
         <style>${css}</style>
         <li>
-          <label class="${this.todoItem.done ? 'done': ''}" for="todo-state">${this.todoItem.item}</label>
-          <input id="todo-state" @change="${(e) => this.toggleTodo(e)}" type="checkbox" ?checked=${this.todoItem.done} />
-          <btn-danger @click="${() => this.deleteItem()}" btnSm="1">Delete</btn-danger>
+          <label
+            class="${this.todoItem.done ? 'done' : ''}"
+            for="todo-state">${this.todoItem.item}</label>
+          <input
+            id="todo-state"
+            @change="${(e) => this.toggleTodo(e)}"
+            type="checkbox"
+            ?checked=${this.todoItem.done} />
+          <btn-danger
+            @click="${() => this.deleteItem()}"
+            btnSm>Delete</btn-danger>
         </li>
       `;
     }

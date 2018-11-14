@@ -30,6 +30,7 @@ class TodoApp extends LitElement {
   }
   public render() {
     return html`
+        <h1>Todo List for Today</h1>
         <add-item
           @updateTodo="${() => this.updateTodoList()}">
         </add-item>
