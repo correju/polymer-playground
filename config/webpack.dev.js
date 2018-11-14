@@ -15,6 +15,7 @@ module.exports = {
     contentBase: 'dist',
     overlay: true
   },
+  devtool: 'source-map',
   resolve: {
     extensions: [".ts", ".js"]
   },
@@ -23,8 +24,7 @@ module.exports = {
       {
         test: /\.ts$/,
         use: [
-            {loader: "ts-loader"},
-            {loader: 'tslint-loader'}
+            {loader: "ts-loader"}
         ],
         exclude: /node_modules/
       },

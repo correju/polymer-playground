@@ -1,20 +1,24 @@
 import { html, LitElement, property } from '@polymer/lit-element';
 import { repeat } from 'lit-html/directives/repeat';
+import { ITodoItem } from '../../interfaces/todoItem.interface';
+import '../list-item';
+
 const css = require('./index.scss') as string;
 
 class ListItems extends LitElement {
     @property({type: Array})
-    private todoList = [];
+    private todoList: ITodoItem[] = [];
+
     public render() {
       return html`
         <style>${css}</style>
-        <ol>${repeat(
+        <ul>${repeat(
           this.todoList,
-          (todo) => todo.id,
-          (item) => html`
-            <li>${item.item}</li>
+          (todoItem) => todoItem.id,
+          (todoItem) => html`
+            <list-item .todoItem="${todoItem}"></list-item>
           `,
-        )}</ol>
+        )}</ul>
       `;
     }
 }
