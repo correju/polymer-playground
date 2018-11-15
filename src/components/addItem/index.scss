@@ -4,10 +4,15 @@
 @import "../../styles/mixins/box_show.scss";
 @import "../../styles/mixins/transitions.scss";
 @import "../../styles/mixins/forms.scss";
-
+@import '../../styles/mixins/border-radius.scss';
 
 .input-group {
+    font-size: 1em;
     display: flex;
+    background-color: $card-border-color;
+    @include border-radius($card-border-radius);
+    max-width: 30em;
+    padding: 1rem;
     & > * {
         margin-right: 5px;
         &:last-child{
@@ -21,6 +26,7 @@
     background-color: $input-bg;
     background-clip: padding-box;
     border: $input-border-width solid $input-border-color;
+    width: 25rem;
     @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
     @include box-shadow($input-box-shadow);
     @include transition($input-transition);

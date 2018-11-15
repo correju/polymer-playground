@@ -33,18 +33,22 @@ class ListItem extends LitElement {
     if (this.todoItem.item) {
       return html`
         <style>${css}</style>
-        <li>
-          <label
-            class="${this.todoItem.done ? 'done' : ''}"
-            for="todo-state">${this.todoItem.item}</label>
-          <input
-            id="todo-state"
-            @change="${(e) => this.toggleTodo(e)}"
-            type="checkbox"
-            ?checked=${this.todoItem.done} />
+        <li class="list-item-wrapper">
+          <div class="list-item-left-wrapper">
+            <input
+              class="list-item-checkbox"
+              id="todo-state"
+              @change="${(e) => this.toggleTodo(e)}"
+              type="checkbox"
+              ?checked=${this.todoItem.done} />
+            <label
+              class="list-item-label ${this.todoItem.done ? 'list-item-done' : ''}"
+              for="todo-state">${this.todoItem.item}</label>
+          </div>
           <btn-danger
+            class="list-item-close"
             @click="${() => this.deleteItem()}"
-            btnSm>Delete</btn-danger>
+            btnSm>x</btn-danger>
         </li>
       `;
     }
