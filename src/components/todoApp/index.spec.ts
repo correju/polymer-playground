@@ -1,7 +1,11 @@
 import { assert } from "chai";
 import './index';
-
-localStorage.setItem('todoList', `[{"done":false,"id":1542433322549,"item":"tomate"},{"done":false,"id":1542433325481,"item":"cebolla"},{"done":false,"id":1542433327598,"item":"carne"}]`);
+const mock = [
+  {"done":false,"id":1542433322549,"item":"Test 1"},
+  {"done":false,"id":1542433325481,"item":"Test 3"},
+  {"done":false,"id":1542433327598,"item":"Test 4"}
+];
+localStorage.setItem('todoList', JSON.stringify(mock));
 let element;
 
 describe('main', () => {
@@ -19,7 +23,4 @@ describe('main', () => {
       })();
     });
   });
-  afterEach(() => {
-    
-  })
 });
