@@ -6,7 +6,7 @@ import '../list-items';
 class TodoApp extends LitElement {
   @property({type: Array})
   public todoList: ITodoItem[] = [];
-  private updateTodoList() {
+  public updateTodoList() {
     const todoList = localStorage.getItem('todoList');
     this.todoList = todoList ? JSON.parse(todoList) : [];
   }
