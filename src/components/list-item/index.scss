@@ -13,21 +13,13 @@
     @include border-radius($card-border-radius);
     max-width: 30rem;
     margin: 1rem 0;
-    & > * {
-        margin-bottom: .50rem;
-        margin-right: .50rem;
-        &:last-child{
-            margin-bottom: 0;
-            margin-right: 0;
-        }
-    }
+
     .list-item-left-wrapper{
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
     }
     .list-item-checkbox {
-        margin-top: .3rem;
         margin-right: .8rem;
         display: inline-block;
     }

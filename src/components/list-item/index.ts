@@ -1,7 +1,7 @@
 import { html, LitElement, property } from '@polymer/lit-element';
 import { repeat } from 'lit-html/directives/repeat';
 import { ITodoItem } from '../../interfaces/todoItem.interface';
-import '../buttonDanger';
+import '../buttonClose';
 const css = require('./index.scss') as string;
 
 class ListItem extends LitElement {
