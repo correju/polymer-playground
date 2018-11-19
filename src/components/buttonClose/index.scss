@@ -11,7 +11,7 @@ $theme-colors: () !default;
 
 $theme-colors: map-merge(
   (
-    "danger":    $danger
+    "light":    $light
   ),
   $theme-colors
 );
