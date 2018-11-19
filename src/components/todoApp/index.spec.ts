@@ -1,9 +1,9 @@
 import { assert } from "chai";
 import './index';
 const mock = [
-  {"done":false,"id":1542433322549,"item":"Test 1"},
-  {"done":false,"id":1542433325481,"item":"Test 3"},
-  {"done":false,"id":1542433327598,"item":"Test 4"}
+  { done: false, id: 1542433322549, item: "Test 1" },
+  { done: false, id: 1542433325481, item: "Test 3" },
+  { done: false, id: 1542433327598, item: "Test 4" },
 ];
 localStorage.setItem('todoList', JSON.stringify(mock));
 let element;
