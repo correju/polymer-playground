@@ -1,17 +1,12 @@
 import page from 'page';
 
-const setContent = ((selector) => (ctx, next) => {
-  document.title = ctx.title;
-  document.querySelector(selector).innerHTML = `<${ctx.component}></${ctx.component}>`;
+const setComponent = ((selector) => (component, title) => (ctx, next) => {
+  document.title = title;
+  document.querySelector(selector).innerHTML  = `<${component}></${component}>`;
   next();
 })('main#view');
 
-const setComponent = (component, title) => (ctx, next) => {
-  ctx.title = title;
-  ctx.component = component;
-  next();
-};
-
-page('/', setComponent('todo-app', 'Home todo'), setContent);
-page('/home', setComponent('home-app', 'dummy page'), setContent);
-page({hashbang : true});
+page.base('');
+page('*', setComponent('not-found', 'Page not found'));
+page('/', setComponent('todo-app', 'Home todo'));
+page();

@@ -13,7 +13,9 @@ module.exports = {
   },
   devServer: {
     contentBase: 'dist',
-    overlay: true
+    overlay: true,
+    disableHostCheck: true,
+    historyApiFallback: true
   },
   devtool: 'source-map',
   resolve: {
