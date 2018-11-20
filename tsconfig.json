@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es2015",
+    "module": "esnext",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "types": ["node", "chai", "mocha", "karma"]
+    "moduleResolution": "node",
+    "types": ["es6-shim", "node", "chai", "mocha", "karma"]
   },
   "exclude": [
     "node_modules"

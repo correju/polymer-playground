@@ -1,6 +1,6 @@
 import {html, LitElement} from '@polymer/lit-element';
 
-class NotFound extends LitElement {
+export class NotFound extends LitElement {
   public render() {
     return html`
       <section>

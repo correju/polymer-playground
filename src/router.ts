@@ -9,8 +9,8 @@ interface IComponentLoader {
 const loadModule = async ({component, params, query }) => {
   switch (component) {
     default:
-      await import(/* webpackChunkName: "notFound" */ './components/notFound');
       appendComponent({component, params, query});
+      const NotFound = await import(/* webpackChunkName: "not_found" */ './components/notFound');
       break;
   }
 };

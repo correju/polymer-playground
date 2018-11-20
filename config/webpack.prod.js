@@ -1,25 +1,23 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TSLintPlugin = require('tslint-webpack-plugin')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TSLintPlugin = require('tslint-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CopressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 module.exports = {
-  name: 'clientProd',
+  name: 'clientDev',
   entry: {
     main: './src/app.ts',
   },
-  mode: 'development',
+  mode: 'production',
   output: {
     filename: '[name]-bundle.js',
-    chunkFilename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
   devServer: {
     contentBase: 'dist',
-    overlay: true,
-    disableHostCheck: true,
-    historyApiFallback: true
+    overlay: true
   },
   devtool: 'source-map',
   resolve: {
@@ -50,7 +48,10 @@ module.exports = {
           minChunks: 2
         }
       }
-    }
+    },
+    minimizer: [new TerserPlugin({
+      extractComments: 'all'
+    })]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -61,8 +62,9 @@ module.exports = {
     new TSLintPlugin({
         files: ['./src/**/*.ts']
     }),
-    // new BundleAnalyzerPlugin({
-    //   generateStatsFile: true
-    // })
+    new CopressionPlugin({
+      algorithm: 'gzip'
+    }),
+    new BrotliPlugin(),
   ]
-}
+};

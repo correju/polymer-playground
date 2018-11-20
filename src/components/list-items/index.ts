@@ -14,8 +14,8 @@ class ListItems extends LitElement {
         <style>${css}</style>
         <ul>${repeat(
           this.todoList,
-          (todoItem) => todoItem.id,
-          (todoItem) => html`
+          (todoItem: ITodoItem) => todoItem.id,
+          (todoItem: ITodoItem) => html`
             <list-item .todoItem="${todoItem}"></list-item>
           `,
         )}</ul>
