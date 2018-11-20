@@ -1,12 +1,41 @@
-import page from 'page';
+const Navigo = require('navigo/lib/navigo');
 
-const setComponent = ((selector) => (component, title) => (ctx, next) => {
-  document.title = title;
+interface IComponentLoader {
+  component: string;
+  title: string;
+  lazyModule?: boolean;
+}
+
+const loadModule = async ({component, params, query }) => {
+  switch (component) {
+    default:
+      await import(/* webpackChunkName: "notFound" */ './components/notFound');
+      appendComponent({component, params, query});
+      break;
+  }
+};
+
+const appendComponent = ((selector) => ({component, params, query}) => {
   document.querySelector(selector).innerHTML  = `<${component}></${component}>`;
-  next();
 })('main#view');
 
-page.base('');
-page('*', setComponent('not-found', 'Page not found'));
-page('/', setComponent('todo-app', 'Home todo'));
-page();
+const setComponent = ({component, title, lazyModule}: IComponentLoader) => (params, query) => {
+  document.title = title;
+  if (lazyModule) {
+    loadModule({component, params, query});
+  }
+  else {
+    appendComponent({component, params, query});
+  }
+};
+const root = `${location.protocol}//${location.host}`;
+const useHash = false;
+const hash = '#';
+const router = new Navigo(root, useHash, hash);
+
+router
+  .on('/',  setComponent({component: 'todo-app', title: 'Home todo'}))
+  .notFound(setComponent({component: 'not-found', title: 'Page not found', lazyModule: true}))
+  .resolve();
+
+
