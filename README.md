@@ -9,10 +9,10 @@ This repository is an experiement to test the library **@polymer/lit-element** c
 * Integration with webpack and typescript.
 * Testing with mocha/chai (Even though polymer propouse a diferent aproach I didn't like it, so I tried a more common one, ideas as well are welcome).
 
-## How to test it
-* **yarn**
+## How to install it
+* **yarn** (install dependencies)
 * **yarn start** (runs webpack dev server)
-* **yarn build** (creates dist folder with js and html file, for now uses the same webpack conf as dev pending to be implemented)
+* **yarn build** (creates dist folder with js and html file)
 * **yarn test** (runs test, pending to be completed)
 
 ### This is a learning experiment ideas are welcome
